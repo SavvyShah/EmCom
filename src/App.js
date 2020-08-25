@@ -18,8 +18,8 @@ export default function App() {
       <Switch>
         <Suspense
           fallback={
-            <div>
-              <Spinner variant="primary" />
+            <div className={styles.spinner}>
+              <Spinner animation="grow" variant="primary" />
             </div>
           }
         >
