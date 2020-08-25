@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom'
+import { AuthCheck } from 'reactfire'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import DashboardPage from './pages/DashboardPage.jsx'
+import LoginPage from './pages/LoginPage.jsx'
+import HomePage from './pages/HomePage.js'
+import CompanyPage from './pages/CompanyPage.js'
 
-export default App;
+export default (props) => (
+  <BrowserRouter>
+    <Switch>
+      <AuthCheck fallback={<Redirect to="/login" />}>
+        <Route
+          exact
+          path="/dashboard/:employee"
+          component={<DashboardPage />}
+        />
+      </AuthCheck>
+      <Route exact path="/company/:company" component={<CompanyPage />} />
+      <Route exact path="/login" component={<LoginPage />} />
+      <Route exact path="/" component={<HomePage />} />
+    </Switch>
+  </BrowserRouter>
+)
