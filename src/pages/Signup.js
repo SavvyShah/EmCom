@@ -3,7 +3,7 @@ import { Container, Button, Form, NavLink } from 'react-bootstrap'
 import { useFirebaseApp, useUser } from 'reactfire'
 import { useHistory } from 'react-router-dom'
 
-export default function Login() {
+export default function Signup() {
   const firebase = useFirebaseApp()
   const [form, setForm] = useState({ email: '', password: '' })
   const history = useHistory()
@@ -14,7 +14,7 @@ export default function Login() {
     console.log(form)
     firebase
       .auth()
-      .signInWithEmailAndPassword(form.email, form.password)
+      .createUserWithEmailAndPassword(form.email, form.password)
       .then(() => {
         console.log('user created!')
       })
@@ -47,7 +47,7 @@ export default function Login() {
         <Button onClick={handleSubmit} variant="primary" type="submit">
           Submit
         </Button>
-        <NavLink>New User?</NavLink>
+        <NavLink>Already a user?</NavLink>
       </Form>
     </Container>
   )
