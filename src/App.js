@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom'
 
+import styles from './App.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import DashboardPage from './pages/DashboardPage.js'
@@ -9,12 +10,19 @@ import HomePage from './pages/HomePage.js'
 import CompanyPage from './pages/CompanyPage.js'
 import { AuthCheck } from 'reactfire'
 import Signup from './pages/Signup.js'
+import { Spinner } from 'react-bootstrap'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <div>
+              <Spinner variant="primary" />
+            </div>
+          }
+        >
           <AuthCheck fallback={<Redirect to="/login" />}>
             <Route exact path="/:employee">
               <DashboardPage />
