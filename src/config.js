@@ -1,6 +1,6 @@
 export default {
-  apiHost: 'http://localhost:3000' || process.env.SERVER_URL || '',
-  mode: 'development', // can be development or production
+  apiHost: 'http://localhost:3000' || '',
+  mode: 'development' || process.env.REACT_APP_MODE, // can be development or production
   firebaseConfig: {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY || '',
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN || '',
