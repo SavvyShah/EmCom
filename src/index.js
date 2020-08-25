@@ -3,15 +3,19 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-import { FirebaseAppProvider } from 'reactfire'
+
 import config from './config'
+import Store from './redux'
+
+import { FirebaseAppProvider } from 'reactfire'
+import { Provider } from 'react-redux'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <FirebaseAppProvider firebaseConfig={config.firebaseConfig}>
+  <FirebaseAppProvider firebaseConfig={config.firebaseConfig}>
+    <Provider store={Store}>
       <App />
-    </FirebaseAppProvider>
-  </React.StrictMode>,
+    </Provider>
+  </FirebaseAppProvider>,
   document.getElementById('root')
 )
 
