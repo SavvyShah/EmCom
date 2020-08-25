@@ -1,5 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Technologies used
+
+React with React Bootstrap
+Firebase with ReactFire
+
+## Steps to run the server locally
+
+- Copy the .env file in email into to the root of the project. i.e. make a .env file in your root project using the variables sent in email.
+- Run `yarn start`
+- Server is loaded on **localhost:3000**
+
 ## Available Scripts
 
 In the project directory, you can run:
